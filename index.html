@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Static Template</title>
+    <style>
+      /* 
+        FLOW LAYOUT 
+          - default layout mode of CSS
+          - inline elements just want to go with the flow
+          - block elements take up space
+          - nothing is going to overrlap
+          - top ot bottom, left to right
+          - no concept rows / colomns
+      */
+      html, body {
+        --background: #606c38;
+        --dark: #283618;
+        --light: #fefae0;
+        --spacing: 10px;
+        background-color: var(--background);
+        margin: 0;
+        height: 100%;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .painting-wrapper {
+        max-width: 800px;
+        margin: auto; /*centers the photo */
+        margin-top: calc(2* var(--spacing));
+      }
+
+      .painting {
+        /* Working with Images in CSS
+          -SET WIDTH TO 100% (take all available space
+          -either constraint the width on a parebt element
+          OR use max-width and min-width to limit growth
+          -object fit control how the image is cropped
+        */
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        background-color: var(--light);
+        line-height: 0; /* get rid of little extra space at the bottom */
+        padding: calc(2* var(--spacing));
+        border: var(--spacing) solid var(--dark);
+      }
+
+      .attribution{
+        background-color: var(--light);
+        color: var(--dark);
+        width: fit-content; /* however much is needed for the content */
+        padding: var(--spacing);
+        margin-top: var(--spacing);
+        margin: auto;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .artist{
+        font-weight: 700;
+        /* background-color: yellow; */
+      }
+    </style>
+  </head>
+  <body>
+    <figure class="painting-wrapper">
+      <img class="painting" src ="https://media.overstockart.com/optimized/cache/data/product_images/MON1239-1000x1000.jpg" alt="An impressionist painting of water lillies in a pond by Claud Monet" </img>
+      <figcaption class="attribution">
+        Water Lillies by <span class ="artist"> Claude Monet </span>
+      </figcaption>
+    </figure>
+  </body>
+</html>
